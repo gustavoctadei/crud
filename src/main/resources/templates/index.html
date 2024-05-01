@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD - Usuários</title>
+</head>
+<body>
+
+<h1>Seja bem vindo</h1>
+<br>
+
+<div sec:authorize="hasAnyRole('ADMIN')">
+    <a th:href="${#mvc.url('getVisualizarUsuario').build()}">Visualizar Usuarios</a><br>
+</div>
+<br>
+
+<a href="/logout">Sair</a>
+
+</body>
+</html>

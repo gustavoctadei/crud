@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD - Usuários</title>
+</head>
+<body>
+
+<h1>Cadastrar novo Usuário</h1>
+
+<form action="#" onsubmit="return confirm('Deseja realmente editar esse usuário?')"
+      th:action="@{/usuario/editar/{id}(id=${usuarioDto.id})}"
+      th:object="${usuarioDto}" method="post">
+
+    <input type="hidden" name="id" th:value="${usuarioDto.id}">
+
+    <label for="nome">Nome</label>
+    <span id="nome" th:text="${usuarioDto.nome}"></span>
+    <br>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" th:value="${usuarioDto.email}">
+    <br>
+
+    <label for="login">Login</label>
+    <input type="text" id="login" name="login" th:value="${usuarioDto.login}">
+    <br>
+
+    <button type="submit">Salvar</button>
+</form>
+
+</body>
+</html>

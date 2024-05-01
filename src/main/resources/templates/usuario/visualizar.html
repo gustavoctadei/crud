@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD - Usuários</title>
+</head>
+<body>
+
+<h1>Lista de Usuários</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Login</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="u : ${listaUsuario}">
+        <td th:text="${u.nome}"></td>
+        <td th:text="${u.email}"></td>
+        <td th:text="${u.login}"></td>
+        <td>
+            <a th:href="${#mvc.url('getEditarUsuario').arg(0, u.id).build()}">Editar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="${#mvc.url('getCadastrarUsuario').build()}">Cadastrar Novo Usuário</a>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:th="http://thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD - Usuários</title>
+</head>
+<body>
+
+<h1>Cadastrar novo Usuário</h1>
+
+<form action="#" onsubmit="return confirm('Deseja realmente cadstrar esse usuário?')"
+      th:action="@{/usuario/cadastrar}"
+      th:object="${usuarioDto}" method="post">
+
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome">
+    <br>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email">
+    <br>
+
+    <label for="login">Login</label>
+    <input type="text" id="login" name="login">
+    <br>
+
+    <button type="submit">Cadastrar</button>
+</form>
+
+</body>
+</html>
